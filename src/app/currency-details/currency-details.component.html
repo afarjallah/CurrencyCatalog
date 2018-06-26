@@ -1,0 +1,19 @@
+<div class="container" *ngIf='currencyData'> 
+  <div class="row">
+    <h2 class="row">{{ currencyData.id }}</h2>
+  </div>
+  <div class="row">
+    <ul>
+      <li>code: {{currencyData.attributes.code}}</li>
+      <li>name: {{currencyData.attributes.name}}</li>
+      <li>currency_type: {{currencyData.attributes.currency_type}}</li>
+      <li>code_iso_numeric3: {{currencyData.attributes.code_iso_numeric3}}</li>
+      <li>code_iso_alpha3: {{currencyData.attributes.code_iso_alpha3}}</li>
+    </ul>
+  </div>
+
+  <div class="row">
+    <button (click)="goBack()" class="btn btn-primary">Go to currencies catalog</button>
+  </div>
+
+</div>

@@ -1,0 +1,33 @@
+<div class="container">
+  <div class="row">
+    <h1>Available currencies</h1>
+  </div>
+
+  <div class="grid grid-pad row">
+    <a *ngFor="let currency of currencies" routerLink="/currency/{{currency.id}}" class="col-6 col-sm-6 col-md-3 col-lg-2 col-xl-2">
+        <div class="module">
+          <div>ID: {{ currency.id }}</div>
+          <div>Type: {{ currency.attributes.currency_type }}</div> 
+          <div>Symbol:{{ currency.attributes.symbol }}</div>
+        </div>
+    </a>
+  </div>
+
+  <div class="row" *ngIf="dataAvailble">
+    <div class="col-12 col-sm-12 col-md-2 col-lg-2 col-xl-2">
+        <select [(ngModel)]="itemsPerPage" (change)="optionChange()" class="form-control">
+            <option value="10" selected>10</option>
+            <option value="50">50</option>
+            <option value="100">100</option>
+          </select>
+    </div>
+    <div class="col-12 col-sm-12 col-md-10 col-lg-10 col-xl-10">
+      <pagination firstText="&laquo;" lastText="&raquo;"
+                  [boundaryLinks]="true"
+                  [totalItems]="totalItems" 
+                  [itemsPerPage]="itemsPerPage"
+                  [maxSize] = "8"
+                  (pageChanged)="pageChanged($event)"></pagination>
+                </div>
+  </div>
+</div>
